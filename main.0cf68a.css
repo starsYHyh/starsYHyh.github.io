@@ -406,7 +406,7 @@ audio {
 }
 
 audio::-webkit-media-controls-panel {
-    background: linear-gradient(100deg,#fff1eb 0%,#c8d6dd 100%);
+    background: linear-gradient(100deg,#fff1eb 0%,#ace0f9 100%);
 }
 
 audio::-webkit-media-controls-timeline {
@@ -2958,7 +2958,7 @@ pre .id {
     width: 200px;
     bottom: 50%;
     margin-bottom: -10px;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 1.1em;
     text-align: center;
     color: #fff;
@@ -3005,14 +3005,14 @@ pre .id {
     width: 3em
 }
 
-.tooltip-left .tooltip-content:after {
+/* .tooltip-left .tooltip-content:after {
     width: 2em;
     height: 2em;
     top: 50%;
     margin: -1em 0 0;
     background: url(./fonts/tooltip.4004ff.svg) no-repeat 50%;
     background-size: 100%
-}
+} */
 
 .tooltip-left .tooltip-west .tooltip-content:after,
 .tooltip-left .tooltip-west .tooltip-content:before {
