@@ -432,8 +432,9 @@ dfn {
 }
 
 mark {
-    background: #ff0;
-    color: #000
+    background: #feecc8;
+    color: #000;
+    border-radius: 3px;
 }
 
 small {

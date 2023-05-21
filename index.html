@@ -171,8 +171,6 @@
         <h1 id="git在IDEA中的使用方法"><a href="#git在IDEA中的使用方法" class="headerlink" title="git在IDEA中的使用方法"></a>git在IDEA中的使用方法</h1><hr>
 <p><strong>创建仓库</strong></p>
         
-          <a class="article-more-a" href="/2023/05/21/%E5%A6%82%E4%BD%95%E5%9C%A8IDEA%E4%B8%AD%E4%BD%BF%E7%94%A8git/#more">more >></a>
-        
       
 
       
@@ -195,7 +193,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/05/21/%E5%A6%82%E4%BD%95%E5%9C%A8IDEA%E4%B8%AD%E4%BD%BF%E7%94%A8git/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/05/21/%E5%A6%82%E4%BD%95%E5%9C%A8IDEA%E4%B8%AD%E4%BD%BF%E7%94%A8git/">全文 >></a>
         </p>
       
 
@@ -268,7 +266,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/05/20/MyPageTest/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/05/20/MyPageTest/">全文 >></a>
         </p>
       
 
@@ -318,82 +316,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+        <p>z</p>
+<p>这是我的第一篇测试用博客。（<mark>胡言乱语版</mark>）</p>
 <p><code>Hello world</code></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">setColors</span>(<span class="params">self, colorsDict</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">type</span>(colorsDict) == <span class="built_in">str</span>:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(colorsDict) <span class="keyword">as</span> colorFile:</span><br><span class="line">                colorsStr = colorFile.readlines()</span><br><span class="line">            colors = np.array([[<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, i.strip().split(<span class="string">&#x27;,&#x27;</span>))) <span class="keyword">for</span> i <span class="keyword">in</span> colorsStr]], dtype=np.uint8)</span><br><span class="line">            <span class="keyword">for</span> color <span class="keyword">in</span> colors[<span class="number">0</span>]:</span><br><span class="line">                key = <span class="string">f&#x27;<span class="subst">&#123;color[<span class="number">0</span>]&#125;</span>, <span class="subst">&#123;color[<span class="number">1</span>]&#125;</span>, <span class="subst">&#123;color[<span class="number">2</span>]&#125;</span>&#x27;</span></span><br><span class="line">                self.colorsDict[key] = [<span class="number">0</span>, ColorLabel(key, <span class="number">0</span>)]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(self.colorsDict) != <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">for</span> _, value <span class="keyword">in</span> self.colorsDict.items():</span><br><span class="line">                    self.colorsLayout.removeWidget(value[<span class="number">1</span>])</span><br><span class="line">                self.colorsDict = <span class="built_in">dict</span>()</span><br><span class="line">            <span class="keyword">for</span> key, value <span class="keyword">in</span> colorsDict.items():</span><br><span class="line">                self.colorsDict[key] = [<span class="built_in">len</span>(value), ColorLabel(key, <span class="built_in">len</span>(value))]</span><br><span class="line">        self.initUI()</span><br></pre></td></tr></table></figure>
-
-<p>该文章总结了出了一些排除准则，可以用于我们的色彩量化。</p>
-<ul>
-<li><p>部分失真检测：若已有$D_0\approx D(c_i,c_l^P)$ ，对于某调色板色彩$c_k^P&#x3D;(L_{k1}^P,a_{k2}^P,b_{k3}^P)\in P(k\ne l)$ ，若存在$1\le M \le 3$，使得：</p>
-<p>$$\sum_{j&#x3D;1}^{M}(x_{ij}-x_{kj}^P)^2\ge  D_0(x为L或a或b)$$</p>
-<p>则$c_k^P$ 不可能是$c_i$ 的最佳调色板映射。</p>
-</li>
-<li><p>加和限定条件：若已有$D_0\approx D(c_i,c_l^P)$ ，对于某调色板色彩$c_k^P&#x3D;(L_{k1}^P,a_{k2}^P,b_{k3}^P)\in P(k\ne l)$，记矢量$c_i$和$c_k^P$的分量加和分别为$s_i$和$s_k^P$，其中$s&#x3D;L+a+b$，则若$c_k^P$ 在搜索范围之内则必须满足条件：</p>
-<p>$$s_i-\sqrt{3D_0}&lt;s_k^P&lt;s_i+\sqrt{3D_0}$$</p>
-</li>
-<li><p>范数限定条件：若已有$D_0\approx D(c_i,c_l^P)$ ，对于某调色板色彩$c_k^P&#x3D;(L_{k1}^P,a_{k2}^P,b_{k3}^P)\in P(k\ne l)$，记矢量$c_i$和$c_k^P$的范数分别为$\left | c_i \right |$ 和$\left | c_k^P \right |$，其中$c&#x3D;\sqrt{L^2+a^2+b^2}$ ，则若$c_k^P$ 在搜索范围之内则必须满足条件：</p>
-<p>$$\left |  c_i - \sqrt{D_0} \right | &lt;\left | c_k^P \right | &lt;\left |  c_i + \sqrt{D_0} \right |$$</p>
-</li>
-</ul>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Numba优化+三重循环+修改CIE76</th>
-<th>Python广播+CIEDE2000</th>
-<th>Python广播+CIE76</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>500*500</td>
-<td>1.183255672454834</td>
-<td>0.786067008972168</td>
-<td>0.0625007152557373</td>
-</tr>
-<tr>
-<td>768*480</td>
-<td>1.184676170349121</td>
-<td>1.187708854675293</td>
-<td>0.07812023162841797</td>
-</tr>
-<tr>
-<td>1024*768</td>
-<td>1.1948485374450684</td>
-<td>2.589869260787964</td>
-<td>0.18749547004699707</td>
-</tr>
-<tr>
-<td>1620*1080</td>
-<td>1.2019727230072021</td>
-<td>5.555423021316528</td>
-<td>0.4324052333831787</td>
-</tr>
-<tr>
-<td>6016*6016</td>
-<td>1.942810297012329</td>
-<td>109.57069206237793</td>
-<td>6.487151145935059</td>
-</tr>
-</tbody></table>
-<p>如果软件在内部&#x3D;&#x3D;自动连续运行一些处理环节而对外界不公开&#x3D;&#x3D;，可能会导致一个难题：出错时不容易找出是哪个环节的问题。所以，最好让这些处理环节以及每一步的步骤都变成明确的信息，可以采取在程序运行时显示运行状态并保存到日志的方式，让设计师能够看到每一步的运行结果，并且手动进行下一步。</p>
-<blockquote>
-<p>软件在自动生成钻石画设计方案时，可能由于两个方面的原因产生不理想的结果。第一个是色彩归纳的误差，它可能导致颜色情感的错乱，这时需要人工修正。第二个是某些色彩对应的钻石数量过少，这会增加后续工作，但影响很小，可以考虑替换这些色彩。但是，如果这些色彩属于图像的重点色彩，则不能替换，需设计师决定。总之，软件的自动生成方案需要人工干预和修正，特别是在色彩处理和重点色彩的判断方面。人与机器的配合可以产生最佳的设计结果，机器处理可以效率化工作流程，而人工判断可以确保色彩和情感的准确表达。二者相辅相成，共同推动这款软件工具的处理的最终效果。</p>
-</blockquote>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+        
       
 
       
@@ -405,7 +331,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/05/20/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/05/20/hello-world/">全文 >></a>
         </p>
       
 
