@@ -1506,7 +1506,7 @@ pre .id {
 
 #header .header-nav {
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
     transition: -webkit-transform .3s ease-in;
     transition: transform .3s ease-in;
     transition: transform .3s ease-in, -webkit-transform .3s ease-in
