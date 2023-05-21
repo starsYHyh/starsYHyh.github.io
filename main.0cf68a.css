@@ -1381,43 +1381,43 @@ pre .id {
 }
 
 .tagcloud a.color1 {
-    background: #ff945c
+    background: #f36b6b
 }
 
 .tagcloud a.color1:before {
-    border-right-color: #ff945c
+    border-right-color: #f36b6b
 }
 
 .tagcloud a.color2 {
-    background: #cc8167
+    background: #ece58a
 }
 
 .tagcloud a.color2:before {
-    border-right-color: #cc8167
+    border-right-color: #ece58a
 }
 
 .tagcloud a.color3 {
-    background: #ba8f6c
+    background: #84d270
 }
 
 .tagcloud a.color3:before {
-    border-right-color: #ba8f6c
+    border-right-color: #84d270
 }
 
 .tagcloud a.color4 {
-    background: #94635c
+    background: #4cb3cd
 }
 
 .tagcloud a.color4:before {
-    border-right-color: #94635c
+    border-right-color: #4cb3cd
 }
 
 .tagcloud a.color5 {
-    background: #7b5d5f
+    background: #5968b1
 }
 
 .tagcloud a.color5:before {
-    border-right-color: #7b5d5f
+    border-right-color: #5968b1
 }
 
 .article-tag-list .article-tag-list-item {
