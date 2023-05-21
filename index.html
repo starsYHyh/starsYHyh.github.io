@@ -25,7 +25,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(300deg, #6c8cd8 0%,#ace0f9 100%);
     }
   </style>
   
@@ -39,7 +39,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #99bee1"></div>
+<div class="overlay" style="background: linear-gradient(100deg,#fff1eb 0%,#ace0f9 100%)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -62,11 +62,11 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">我的所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">有趣的网站</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">有趣网站</a>
     			
             
     			
@@ -92,7 +92,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #99bee1"></div>
+  	<div class="overlay js-overlay" style="background: linear-gradient(100deg,#fff1eb 0%,#ace0f9 100%)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -170,30 +170,9 @@
       
         <h1 id="git在IDEA中的使用方法"><a href="#git在IDEA中的使用方法" class="headerlink" title="git在IDEA中的使用方法"></a>git在IDEA中的使用方法</h1><hr>
 <p><strong>创建仓库</strong></p>
-<p><img src="https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305201720233.jpg"></p>
-<p><strong>指定目录</strong></p>
-<p>在指定的目录下clone该仓库</p>
-<p><img src="https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305201725457.jpg" alt="指定目录"></p>
-<p>如我想在IDEAProjects中放置该仓库。</p>
-<p><strong>Clone仓库</strong></p>
-<p><img src="https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305201727947.jpg" alt="克隆仓库"></p>
-<p><strong>在本地进行更改</strong></p>
-<p>打开项目发现文件为红色</p>
-<p><img src="https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305201733510.jpg" alt="红色"></p>
-<p>在控制台运行<code>git add .</code>之后变成绿色：</p>
-<p><img src="https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305201734426.jpg" alt="绿色"></p>
-<p>在控制台运行<code>git commit -m First!</code>之后</p>
-<p><img src="https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305201739099.jpg" alt="commit之后"></p>
-<p>在控制台运行<code>git push</code>之后：</p>
-<p><img src="https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305201740314.jpg" alt="push之后"></p>
-<p>发现内容已经更新。</p>
-<p><strong>在浏览器中的github进行更改</strong></p>
-<p><img src="https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305201744236.jpg" alt="github进行更改"></p>
-<p>在IDEA中点击更新按钮</p>
-<p><img src="https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305201746185.jpg" alt="IDEA 更新"></p>
-<p>之后一段时间后，内容进行了更新：</p>
-<p><img src="https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305201748297.jpg" alt="IDEA更新"></p>
-
+        
+          <a class="article-more-a" href="/2023/05/21/%E5%A6%82%E4%BD%95%E5%9C%A8IDEA%E4%B8%AD%E4%BD%BF%E7%94%A8git/#more">more >></a>
+        
       
 
       
@@ -541,11 +520,11 @@ MathJax.Hub.Queue(function() {
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">我的所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">有趣的网站</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">有趣网站</a></li>
       
         
       

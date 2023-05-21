@@ -2782,7 +2782,8 @@ pre .id {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    opacity: .8
+    opacity: .8;
+    border-radius: 10%;
 }
 
 .jump-plan-container {
@@ -2814,7 +2815,8 @@ pre .id {
     line-height: 40px;
     width: 40px;
     text-align: center;
-    display: block
+    display: block;
+    border-radius: 10%;
 }
 
 .mod-side-operation__jump-to-top .icon-back:hover {
@@ -3140,7 +3142,10 @@ pre .id {
     }
 
     #mobile-nav {
-        display: block
+        background: linear-gradient(100deg, #fff1eb 0%, #ace0f9 100%);
+        /* background-image: url(https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305211447052.png); */
+        /* background-image: url(https://typora-yh24.oss-cn-shanghai.aliyuncs.com/PicGo202305210022322.jpg); */
+        display: block;
     }
 
     .body-wrap {
@@ -3247,7 +3252,7 @@ pre .id {
     }
 
     .btnctn .slider-trigger:hover {
-        background: #444
+        background: #888
     }
 
     .btnctn .slider-trigger .icon {
@@ -3489,9 +3494,9 @@ pre .id {
     #mobile-nav .overlay {
         height: 110px;
         position: absolute;
+        visibility: hidden;
         width: 100%;
         z-index: 2;
-        background: #4d4d4d
     }
 
     #mobile-nav #header {
@@ -3506,7 +3511,7 @@ pre .id {
 
     .header-menu {
         height: auto;
-        margin: 10px 0 20px
+        margin: 0;
     }
 
     .header-menu.tools-nav {
@@ -3551,11 +3556,18 @@ pre .id {
         position: relative;
         z-index: 1;
         border: 1px solid #a0a0a0;
-        border-radius: 3px
+        border-radius: 3px;
+        background-color: #d0d0d0;
+        opacity: 0.6;
     }
 
     .header-menu li {
         border-left: 1px solid #a0a0a0
+    }
+
+    .header-menu li:hover {
+        background-color: #aaa;
+        transition: .3s;
     }
 
     .header-menu li:first-child {
@@ -3572,7 +3584,7 @@ pre .id {
         text-overflow: ellipsis;
         white-space: nowrap;
         display: block;
-        color: #a0a0a0
+        color: #333333
     }
 
     .header-menu li a.active {
