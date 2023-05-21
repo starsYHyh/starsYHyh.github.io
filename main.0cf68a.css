@@ -980,7 +980,7 @@ html {
 }
 
 .left-col #header a {
-    color: #696969
+    color: #3d3d3d
 }
 
 .left-col #header a:hover {
@@ -1018,7 +1018,7 @@ html {
 }
 
 .left-col #header .header-menu li a {
-    font-size: 14px;
+    font-size: 16px;
     min-width: 300px
 }
 
@@ -1531,6 +1531,10 @@ pre .id {
     transition: -webkit-transform .3s ease-in;
     transition: transform .3s ease-in;
     transition: transform .3s ease-in, -webkit-transform .3s ease-in
+}
+
+#header .left-col-audio {
+    margin-top: 20px;
 }
 
 #header .header-nav .social {
@@ -3005,14 +3009,14 @@ pre .id {
     width: 3em
 }
 
-/* .tooltip-left .tooltip-content:after {
+.tooltip-left .tooltip-content:after {
     width: 2em;
     height: 2em;
     top: 50%;
     margin: -1em 0 0;
     background: url(./fonts/tooltip.4004ff.svg) no-repeat 50%;
     background-size: 100%
-} */
+}
 
 .tooltip-left .tooltip-west .tooltip-content:after,
 .tooltip-left .tooltip-west .tooltip-content:before {
