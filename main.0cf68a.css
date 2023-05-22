@@ -393,13 +393,17 @@ summary {
 
 audio,
 canvas,
-progress,
-video {
+progress {
     display: inline-block;
     /* display: block; */
-    width: 300px;
+    /* width: 300px; */
 }
 
+video {
+    width: auto;
+    height: auto;
+    display: block;
+}
 
 #header-audio {
     width: 190px;
