@@ -995,8 +995,8 @@ html {
 
 .left-col #header .header-subtitle {
     text-align: center;
-    color: #999;
-    font-size: 14px;
+    color: #3d3d3d;
+    font-size: 16px;
     line-height: 25px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2818,6 +2818,10 @@ pre .id {
     border-radius: 10%;
 }
 
+/* .toc-container::-webkit-scrollbar {
+    display: none;
+} */
+
 .jump-plan-container {
     position: absolute;
     top: -11px;
@@ -2917,6 +2921,10 @@ pre .id {
 
 .toc-container.tooltip-left .tooltip-east .tooltip-content .toc-article li {
     white-space: nowrap
+}
+
+.toc-article::-webkit-scrollbar {
+    display: none;
 }
 
 .toc-container.tooltip-left .tooltip:hover .tooltip-content {
@@ -3197,9 +3205,9 @@ pre .id {
         position: relative
     }
 
-    .wrap-side-operation {
+    /* .wrap-side-operation {
         display: none
-    }
+    } */
 
     .cloud-tie-wrapper {
         padding: 0;
