@@ -400,9 +400,13 @@ progress {
 }
 
 video {
-    width: auto;
-    height: auto;
     display: block;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #header-audio {
