@@ -367,50 +367,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文章为数据可视化课程的一次小作业，是2011年数据可视化迷你挑战赛的一个题目。由于时间有限且作者技术有限，所以分析过程与实现手段都有很大的提升空间😁。</p>
-<h1 id="数据可视化小作业-IEEE-VAST-Challenge-2011"><a href="#数据可视化小作业-IEEE-VAST-Challenge-2011" class="headerlink" title="数据可视化小作业 IEEE VAST Challenge 2011"></a>数据可视化小作业 IEEE VAST Challenge 2011</h1><h2 id="一、题目要求（根据原题目进行翻译）"><a href="#一、题目要求（根据原题目进行翻译）" class="headerlink" title="一、题目要求（根据原题目进行翻译）"></a>一、题目要求（根据原题目进行翻译）</h2><p>瓦斯托波利斯是一个主要的大都市区，人口约200万。 在过去的几天里，当地医院的卫生专业人员注意到报告的疾病急剧增加。观察到的症状主要是流感样，包括发烧，发冷，出汗，疼痛，疲劳，咳嗽，呼吸困难，恶心和呕吐，腹泻和淋巴结肿大。（fever, chills,sweats, aches and pains, fatigue, coughing, breathing difficulty, nausea and vomiting, diarrhea, and enlarged lymph nodes.）最近，据信有几例死亡与目前的疫情有关。市政府官员担心可能发生的流行病，并正在动员应急管理资源来减轻影响。您负责对情况进行评估。<br>我们为您提供了两个数据集。 第一个包含从具有GPS功能的各种设备收集的微博消息。 这些设备包括便携式计算机、手持计算机和移动电话。 第二个包含整个大都市区的地图信息。 地图数据集包含带有标注高速公路、医院、重要地标和水体的卫星影像。 我们还为人口统计和观测到的天气数据提供补充表。 自述文件中提供了其他信息。</p>
-<p><strong>MC 1.1</strong> 起源和流行传播：在地图上大致确定疫情开始的地方（零地位置）。 如果可能，请概述受影响的区域。 解释你是如何得出结论的。（简答）</p>
-<p><strong>MC 1.2</strong> 流行病传播：提出关于感染如何传播的假设。 例如，传播方式是人与人之间的传播方式、空气传播传播方法、水传播传播方法还是其他传播方法？ 确定支持您的假设的趋势。 疫情是否得到控制？ 应急管理人员是否有必要在疫区外部署治疗资源？ 解释你的理由。（详细回答）</p>
-<h2 id="二、使用工具"><a href="#二、使用工具" class="headerlink" title="二、使用工具"></a>二、使用工具</h2><p>MATLAB。</p>
-<h2 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h2><h3 id="1-导入数据"><a href="#1-导入数据" class="headerlink" title="1. 导入数据"></a>1. 导入数据</h3><p>本次实验使用的主要的数据为Microblogs.csv文件，使用<code>readtable()</code>进行导入。然后使用<code>xlsread()</code>导入天气数据。</p>
-<h3 id="2-提取关键字"><a href="#2-提取关键字" class="headerlink" title="2. 提取关键字"></a>2. 提取关键字</h3><p>1）根据题目中的描述：Observed symptoms are largely flu-like and include fever, chills,sweats, aches and pains, fatigue, coughing, breathing difficulty, nausea and vomiting, diarrhea, and enlarged lymph nodes.（观察到的症状主要是流感样，包括发烧，发冷，出汗，疼痛，疲劳，咳嗽，呼吸困难，恶心和呕吐，腹泻和淋巴结肿大。）我们可以得知，需要从所有的blogs中提取出含有以上关键字的条目，但是又根据老师后面发的一些文档中的图片：</p>
-<img src="https://picgo-myblog.oss-cn-beijing.aliyuncs.com/Images/202305230029696.png" style="zoom: 67%;" />
-
-<p>可以得知，共有三类关注点，分别位于城区、河边、桥上，由于桥上的是非疾病因素，所以不做考虑，而将剩下的两类分开，我也提取出来了两类代表性的关键字：第一类：flu、fever；第二类：stomach、diarrhea，然后使用一些代码进行提取（<mark>由于第一类和第二类主要的处理部分相同，所以文档中的代码均取第一类的处理代码</mark>）：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = table2array(srcdata( : , <span class="number">4</span>));  </span><br><span class="line">keywords = [<span class="string">&quot;fever&quot;</span>, <span class="string">&quot;flu&quot;</span>];  </span><br><span class="line">a = string(a);  </span><br><span class="line">ind = contains(a(<span class="number">1</span> : <span class="keyword">end</span>), keywords);  </span><br><span class="line">ind = <span class="built_in">find</span>(ind);  </span><br><span class="line">orgdata = srcdata(ind, : ); </span><br></pre></td></tr></table></figure>
-
-<p>2）得到的<code>srcdata</code>为根据关键字从表中提取出来的条目，再将其转换为cell格式。</p>
-<h3 id="3-划分"><a href="#3-划分" class="headerlink" title="3. 划分"></a>3. 划分</h3><p>经纬度及时间处理由于后面的步骤需要分析每天的出现的新条目数及位置，所以需要根据每天的时间对<code>srcdata</code>进行划分。<br>1）首先需要得到时间以及经纬度：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alltimes = srcdata(:, <span class="number">2</span>);  </span><br><span class="line">alltimes = table2cell(alltimes);  </span><br><span class="line">loc = srcdata(:, <span class="number">3</span>);  </span><br><span class="line">loc = table2cell(loc); </span><br></pre></td></tr></table></figure>
-
-<p>2） 将经纬度字符数组分隔并转换为数值格式：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">temploc = <span class="built_in">zeros</span>(<span class="built_in">length</span>(loc) + <span class="number">2</span>, <span class="number">2</span>); </span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : <span class="built_in">length</span>(loc) </span><br><span class="line">	temploc(<span class="built_in">i</span>, : ) = str2double(strsplit(loc&#123;<span class="built_in">i</span>&#125;, <span class="string">&#x27; &#x27;</span>)); </span><br><span class="line">	alldata(<span class="built_in">i</span>, <span class="number">2</span> : <span class="number">3</span>) = <span class="built_in">num2cell</span>(temploc(<span class="built_in">i</span>, : )); </span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line">temploc = cell2mat(alldata( : , <span class="number">2</span> : <span class="number">3</span>)); </span><br></pre></td></tr></table></figure>
-
-<p>3）<mark>很重要的一步</mark><br>观察到，原始的数据中，blogs时间并非是依据时间顺序的需要依据天数来对<code>srcdata</code>进行升序排序，方便后面的操作：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">timeStr = <span class="built_in">num2cell</span>(datenum(alltimes));    <span class="comment">%将日期字符串转为数值  </span></span><br><span class="line">alldata( : , <span class="number">1</span>) = timeStr;  </span><br><span class="line">alldata = <span class="built_in">sortrows</span>(alldata, <span class="number">1</span>);    <span class="comment">% 进行排序  </span></span><br><span class="line">timeSorted = <span class="built_in">sortrows</span>(datenum(alltimes));   </span><br><span class="line">timeSorted = datestr(timeSorted, <span class="string">&#x27;yyyy-mm-dd HH:MM&#x27;</span>);  </span><br><span class="line">alldata( : , <span class="number">1</span>) = cellstr(timeSorted( : , : ));</span><br></pre></td></tr></table></figure>
-
-<p>4）获得每天的新增人数，由于Blogs中的发言一定程度上是可以反映该地区的新增人数的，所以需要根据日期来获得当天的新增人数：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">days = datestr(timeSorted, <span class="string">&#x27;yyyy-mm-dd&#x27;</span>);  </span><br><span class="line">cdays = cellstr(days);  </span><br><span class="line">difdays = unique(cdays);  <span class="comment">% 提取出不同日期  </span></span><br><span class="line">daysfromwea = wea(<span class="number">2</span> : <span class="keyword">end</span>, <span class="number">1</span>);   <span class="comment">%来自天气数据的天数  </span></span><br><span class="line">daysfromwea = datestr(daysfromwea, <span class="string">&#x27;yyyy-mm-dd&#x27;</span>);  </span><br><span class="line">wea(<span class="number">2</span> : <span class="keyword">end</span>, <span class="number">1</span>) = cellstr(daysfromwea);  </span><br><span class="line">days = cellstr(days);  </span><br><span class="line">alldatabyday( : , <span class="number">1</span>) = days;  </span><br><span class="line">daysstr = char(days);  </span><br><span class="line">countbydays = tabulate(days);  </span><br><span class="line">countbydays = countbydays( : , <span class="number">1</span> : <span class="number">2</span>); </span><br></pre></td></tr></table></figure>
-
-<p>展示：</p>
-<p><img src="https://picgo-myblog.oss-cn-beijing.aliyuncs.com/Images/202305230104484.png" alt="图片2"></p>
-<p><mark>很明显地观察到：在18日时人数激增，可以初步判定为爆发日期</mark>。</p>
-<p>5）接下来，根据每天的新增的病例，对这些病例的位置进行显示，由于观察到</p>
-<img src="https://picgo-myblog.oss-cn-beijing.aliyuncs.com/Images/202305230106005.jpg" alt="图片4" style="zoom: 80%;" />
-
-<p>6）合并所有需要的有用的信息（包括后面分析用到的天气数据、每日新增数量）：</p>
-<p><img src="https://picgo-myblog.oss-cn-beijing.aliyuncs.com/Images/202305230107182.jpg" alt="图片5"></p>
-<h4 id="A-第一题"><a href="#A-第一题" class="headerlink" title="A.	第一题"></a>A.	第一题</h4><p>在地图上大致确定疫情开始的地方（零地位置）。 如果可能，请概述受影响的区域。 解释你是如何得出结论的。</p>
-<h5 id="第一类疾病"><a href="#第一类疾病" class="headerlink" title="第一类疾病"></a>第一类疾病</h5><p>根据之前操作的绘图，我们可以发现，针对于第一类疾病，其主要分布在主城区：上城、下城，我们再依次绘制出第18~21天的分布的直方图：</p>
-<img src="https://picgo-myblog.oss-cn-beijing.aliyuncs.com/Images/202305230110541.png" style="zoom: 50%;" />
-
-<p>得到这样的一个基本分布后，我们第一题也就可以得出结论，其爆发时间为5月19日结合卫星地图，我们不难发现，这些比较突出的点都是位于主城区的一些地方：</p>
-<p><img src="https://picgo-myblog.oss-cn-beijing.aliyuncs.com/Images/202305230113069.jpg" alt="图片6"></p>
-<p><mark>位于：Vastopolis Dome以及Vastopolis City Hospital</mark>，但是实际上，地图是有些比较零散的点的，而且从一开始就有，一直到结束，所以需要在直方图的基础上，去掉那些零散的点，也就是密度较小的点，处理过后：</p>
-<img src="https://picgo-myblog.oss-cn-beijing.aliyuncs.com/Images/202305230114761.png" style="zoom:67%;" />
-
-<p>经过去除零散点，排除了一些干扰，这样爆发的位置就更加明显了。</p>
-<p><mark>未完…</mark></p>
-
+        
       
 
       
@@ -760,11 +717,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2002-S</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2002-S</a>
         		</li>
       		
 		</ul>
@@ -868,11 +825,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日志</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2002-S</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2002-S</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日志</a>
         		</li>
       		
 		</ul>
@@ -1026,15 +983,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">校内课程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">2021-B</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">校内课程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1046,7 +999,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日志</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1054,7 +1007,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">日志</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">2021-B</a>
               </li>
             
             <div class="clearfix"></div>
