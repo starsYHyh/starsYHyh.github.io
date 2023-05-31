@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>尝试使用流程图 | Fifly个人博客</title>
+  <title>尝试在hexo中使用流程图等 | Fifly个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="安装flowchart1npm install --save hexo-filter-flowchart 可以设置flowchart居中显示，在主题下的source文件夹中的main.0cf68a.css中进行修改，添加代码： 12345.flow-chart &amp;#123;  text-align: center;  overflow: auto;  background: transparent">
 <meta property="og:type" content="article">
-<meta property="og:title" content="尝试使用流程图">
+<meta property="og:title" content="尝试在hexo中使用流程图等">
 <meta property="og:url" content="http://example.com/2023/05/31/myChart/index.html">
 <meta property="og:site_name" content="Fifly个人博客">
 <meta property="og:description" content="安装flowchart1npm install --save hexo-filter-flowchart 可以设置flowchart居中显示，在主题下的source文件夹中的main.0cf68a.css中进行修改，添加代码： 12345.flow-chart &amp;#123;  text-align: center;  overflow: auto;  background: transparent">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-31T06:10:00.622Z">
+<meta property="article:modified_time" content="2023-05-31T06:28:49.174Z">
 <meta property="article:author" content="FireflyYH">
 <meta property="article:tag" content="code">
 <meta property="article:tag" content="2023-A">
@@ -278,7 +278,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      尝试使用流程图
+      尝试在hexo中使用流程图等
     </h1>
   
 
@@ -295,10 +295,22 @@
 <p>可以设置flowchart居中显示，在主题下的source文件夹中的<code>main.0cf68a.css</code>中进行修改，添加代码：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flow-chart</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">overflow</span>: auto;</span><br><span class="line">  <span class="attribute">background</span>: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>结果如下图：</p>
+<span id="more"></span>
+
+<div id="flowchart-0" class="flow-chart"></div>
+
 <h5 id="安装sequence"><a href="#安装sequence" class="headerlink" title="安装sequence"></a>安装sequence</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-filter-sequence</span><br></pre></td></tr></table></figure>
 <p>由于sequence图原作者并未为其添加class，所以为了设置sequence的样式，需要在根目录下的<code>\node_modules\hexo-filter-sequence\lib</code>的<code>render.js</code>进行修改，具体为将大概第22行的<code>return start + &#39;&lt;div id=&quot;&#39; + seqId + &#39;&quot;&gt;&lt;/div&gt;&#39; + end;</code>改为<code>return start + &#39;&lt;div id=&quot;&#39; + seqId + &#39;&quot; class=&quot;sequence&quot;&gt;&lt;/div&gt;&#39; + end;</code>，然后以为flowchart修改样式的方法为sequence修改样式，即在相应文件中添加代码：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sequence</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">overflow</span>: auto;</span><br><span class="line">  <span class="attribute">background</span>: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上参考了<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4d0020bde612">简书上的博客</a></p>
+<p>以上参考了<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4d0020bde612">简书上的博客</a>。</p>
+<p>结果如下图：</p>
+<div id="sequence-0" class="sequence"></div>
+
+
+
+
+
 <hr>
 <h5 id="安装mermaid"><a href="#安装mermaid" class="headerlink" title="安装mermaid"></a>安装mermaid</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
 
@@ -323,35 +335,76 @@
 </li>
 <li><p>在第二步当version为8.8.4的时候，有时候渲染会报错：Syntax error in graphmermaid version 8.8.4，当我将8.8.4替换为10.2.0（官方最新版）的时候错误解决，或许是版本的问题？🤔</p>
 </li>
+<li><p>注意在最后一张图后面一定要有个回车或者后面还要有其他内容，否则最后一个图会报错。</p>
+</li>
 </ol>
-<div id="flowchart-0" class="flow-chart"></div>
-
-<div id="sequence-0" class="sequence"></div>
-
-<pre class="mermaid">sequenceDiagram
-    box Purple Alice & John
-    participant A
-    participant J
+<p>结果如下图：</p>
+<pre class="mermaid"> sequenceDiagram
+ title SequenceDiagram
+    Alice->>Bob: Hello Bob, how are you?
+    alt is sick
+    Bob->>Alice: Not so good :(
+    else is well
+    Bob->>Alice: Feeling fresh like a daisy
     end
-    box Another Group
-    participant B
-    participant C
-    end
-    A->>J: Hello John, how are you?
-    J->>A: Great!
-    A->>B: Hello Bob, how is Charly ?
-    B->>C: Hello Charly, how are you?</pre>
+    opt Extra response
+    Bob->>Alice: Thanks for asking
+    end</pre>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始节点
-in=>inputoutput: 输入
-e=>end: 结束节点
-op=>operation: 操作节点
-cond=>condition: 条件节点
-sub=>subroutine: 子例程
-out=>inputoutput: 输出
-st(right)->in->op->cond
-cond(yes,right)->out->e
-cond(no)->sub</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Alice->Bob: Hello Bob, how are you?
+<pre class="mermaid">        gantt
+        dateFormat  YYYY-MM-DD
+        title Adding GANTT diagram functionality to mermaid
+
+        section A section
+        Completed task            :done,    des1, 2014-01-06,2014-01-08
+        Active task               :active,  des2, 2014-01-09, 3d
+        Future task               :         des3, after des2, 5d
+        Future task2               :         des4, after des3, 5d
+
+        section Critical tasks
+        Completed task in the critical line :crit, done, 2014-01-06,24h
+        Implement parser and jison          :crit, done, after des1, 2d
+        Create tests for parser             :crit, active, 3d
+        Future task in critical line        :crit, 5d
+        Create tests for renderer           :2d
+        Add to mermaid                      :1d
+
+        section Documentation
+        Describe gantt syntax               :active, a1, after des1, 3d
+        Add gantt diagram to demo page      :after a1  , 20h
+        Add another diagram to demo page    :doc1, after a1  , 48h
+
+        section Last section
+        Describe gantt syntax               :after doc1, 3d
+        Add gantt diagram to demo page      : 20h
+        Add another diagram to demo page    : 48h</pre>
+
+
+<pre class="mermaid"> mindmap
+  root((mindmap))
+    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness<br/>and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid</pre>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start
+op=>operation: Your Operation
+cond=>condition: Yes or No?
+e=>end
+
+st->op->cond
+cond(yes)->e
+cond(no)->op</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Alice->Bob: Hello Bob, how are you?
 Note right of Bob: Bob thinks
 Bob-->Alice: I am good thanks!</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script>
       

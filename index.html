@@ -274,7 +274,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/31/myChart/">尝试使用流程图</a>
+      <a class="article-title" href="/2023/05/31/myChart/">尝试在hexo中使用流程图等</a>
     </h1>
   
 
@@ -291,65 +291,8 @@
 <p>可以设置flowchart居中显示，在主题下的source文件夹中的<code>main.0cf68a.css</code>中进行修改，添加代码：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flow-chart</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">overflow</span>: auto;</span><br><span class="line">  <span class="attribute">background</span>: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="安装sequence"><a href="#安装sequence" class="headerlink" title="安装sequence"></a>安装sequence</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-filter-sequence</span><br></pre></td></tr></table></figure>
-<p>由于sequence图原作者并未为其添加class，所以为了设置sequence的样式，需要在根目录下的<code>\node_modules\hexo-filter-sequence\lib</code>的<code>render.js</code>进行修改，具体为将大概第22行的<code>return start + &#39;&lt;div id=&quot;&#39; + seqId + &#39;&quot;&gt;&lt;/div&gt;&#39; + end;</code>改为<code>return start + &#39;&lt;div id=&quot;&#39; + seqId + &#39;&quot; class=&quot;sequence&quot;&gt;&lt;/div&gt;&#39; + end;</code>，然后以为flowchart修改样式的方法为sequence修改样式，即在相应文件中添加代码：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sequence</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">overflow</span>: auto;</span><br><span class="line">  <span class="attribute">background</span>: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上参考了<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4d0020bde612">简书上的博客</a></p>
-<hr>
-<h5 id="安装mermaid"><a href="#安装mermaid" class="headerlink" title="安装mermaid"></a>安装mermaid</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p>在根目录下的<code>_config.yml</code>中加入以下代码：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mermaid chart</span></span><br><span class="line"><span class="attr">mermaid:</span> <span class="comment">## mermaid url https://github.com/knsv/mermaid</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>  <span class="comment"># default true</span></span><br><span class="line">  <span class="attr">version:</span> <span class="string">&quot;7.1.2&quot;</span> <span class="comment"># default v7.1.2</span></span><br><span class="line">  <span class="attr">options:</span>  <span class="comment"># find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span></span><br><span class="line">    <span class="comment">#startOnload: true  // default true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>我使用的是yilia主题，在主题目录下的<code>_config.yml</code>中加入代码（此处参考了<a target="_blank" rel="noopener" href="https://clarkchen.com/Hexo/Hexo%E4%B8%AD%E6%8F%92%E5%85%A5mermaid-diagrams/">其他博客</a>）：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Mermaid tag</span></span><br><span class="line"><span class="attr">mermaid:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">10.2</span><span class="number">.0</span> </span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> </span><br><span class="line">  <span class="comment"># Available themes: default | dark | forest | neutral</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">&quot;forest&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在主题目录下的<code>/layout/_partial</code>路径中的<code>after-footer.ejs</code>中加入以下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.mermaid.enable) &#123; %&gt;</span><br><span class="line">	&lt;script src=&#x27;https://unpkg.com/mermaid@&lt;%= theme.mermaid.version %&gt;/dist/mermaid.min.js&#x27;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">	  if (window.mermaid) &#123;</span><br><span class="line">		mermaid.initialize(&#123;theme: &#x27;forest&#x27;&#125;);</span><br><span class="line">	  &#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<p>这里的<code>theme: &#39;forest&#39;</code>可以更改为其他主题。</p>
-</li>
-<li><p>这时候如果我们代码背景是黑色的话，mermaid的背景也是黑色，配合forest会比较难看，所以我将主题下的source文件夹中的<code>main.0cf68a.css</code>中进行了一处修改：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-entry</span> <span class="selector-class">.highlight</span>,</span><br><span class="line"><span class="selector-class">.article-entry</span> pre &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#282a36</span>;</span><br><span class="line">    <span class="comment">/* background: transparent; */</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: auto;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">22.400000000000002px</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.article-entry</span> pre &#123;</span><br><span class="line">    <span class="attribute">background</span>: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>同样的，我们可以将其设为居中，在css中添加：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.mermaid</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>在第二步当version为8.8.4的时候，有时候渲染会报错：Syntax error in graphmermaid version 8.8.4，当我将8.8.4替换为10.2.0（官方最新版）的时候错误解决，或许是版本的问题？🤔</p>
-</li>
-</ol>
-<div id="flowchart-0" class="flow-chart"></div>
-
-<div id="sequence-0" class="sequence"></div>
-
-<pre class="mermaid">sequenceDiagram
-    box Purple Alice & John
-    participant A
-    participant J
-    end
-    box Another Group
-    participant B
-    participant C
-    end
-    A->>J: Hello John, how are you?
-    J->>A: Great!
-    A->>B: Hello Bob, how is Charly ?
-    B->>C: Hello Charly, how are you?</pre>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始节点
-in=>inputoutput: 输入
-e=>end: 结束节点
-op=>operation: 操作节点
-cond=>condition: 条件节点
-sub=>subroutine: 子例程
-out=>inputoutput: 输出
-st(right)->in->op->cond
-cond(yes,right)->out->e
-cond(no)->sub</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script>
+<p>结果如下图：</p>
+        
       
 
       
