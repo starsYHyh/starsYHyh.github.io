@@ -1157,12 +1157,31 @@ html {
 .article-entry .highlight,
 .article-entry pre {
     background: #282a36;
+    /* background: transparent; */
     margin: 10px 0;
     padding: 10px;
     overflow: auto;
     color: #fff;
     font-size: 15px;
     line-height: 22.400000000000002px
+}
+
+.article-entry pre {
+    background: transparent;
+}
+
+.flow-chart {
+    text-align: center;
+    /* max-height: 300px; */
+    overflow: auto;
+    background: transparent;
+}
+
+.sequence {
+    text-align: center;
+    /* max-height: 300px; */
+    overflow: auto;
+    background: transparent;
 }
 
 .article-entry .gist .gist-file .gist-data .line-numbers,
@@ -2515,7 +2534,7 @@ pre .id {
     overflow-x: auto;
     color: #657b83;
     border: 1px solid #ccc;
-    text-shadow: 0 1px #444;
+    border-radius: 5px;
     font-family: Consolas, Monaco, Andale Mono, lucida console, Courier New, monospace
 }
 
@@ -3177,6 +3196,10 @@ pre .id {
 
 .footer-right {
     float: right
+}
+
+.mermaid {
+    text-align: center;
 }
 
 @media screen and (max-width:800px) {
